@@ -1,0 +1,832 @@
+:root {
+    font-size: 16px;
+}
+
+body {
+    font-family: $font-family;
+    font-weight: $font-normal;
+    color: $dark;
+    line-height: 1.35;
+}
+
+a {
+    text-decoration: none;
+    color: $dark;
+}
+
+.section-title {
+    text-transform: uppercase;
+    @include media-max("md") {
+        font-size: 1.5rem;
+    }
+}
+
+/*=============================================
+=            Header            =
+=============================================*/
+.header {
+    @include backImage($gradient-0, "../images/hero.jpg");
+    @include background;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+}
+
+// Navigation Styles
+.nav,
+.features-content,
+.work-content,
+.reviews-group,
+.plans-group,
+.form-flex,
+.footer-brand {
+    @include flex;
+}
+
+.logo {
+    height: auto;
+    width: 5rem;
+}
+
+.hamburger-menu {
+    display: none;
+    @include media-max("md") {
+        font-size: 2rem;
+        color: $white;
+        cursor: pointer;
+        position: relative;
+        z-index: 1500;
+        display: block;
+    }
+    .fa-times {
+        @include media-max("md") {
+            display: none;
+        }
+    }
+}
+
+.menu-open .hamburger-menu .fa-times {
+    @include media-max("md") {
+        display: block;
+    }
+}
+
+.menu-open .hamburger-menu .fa-bars {
+    @include media-max("md") {
+        display: none;
+    }
+}
+
+.nav-list {
+    list-style-type: none;
+    display: inherit;
+    position: relative;
+    flex-direction: row;
+    justify-content: initial;
+    opacity: 1;
+    transform: scale(1);
+    @include media-max("md") {
+        opacity: 0;
+        transition: opacity $normal;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include flex(center);
+        flex-direction: column;
+        z-index: 1400;
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity $normal;
+        background-color: $dark;
+        overflow: hidden;
+    }
+}
+
+.menu-open .nav-list {
+    @include media-max("md") {
+        padding-left: 0;
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.nav-link {
+    color: $primary;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+    @include media-max("md") {
+        display: block;
+        font-size: 2rem;
+        padding: 1rem 0 0.2rem;
+        text-transform: uppercase;
+        font-weight: $font-normal;
+    }
+    &:hover {
+        border-bottom: 2px solid $primary;
+    }
+}
+
+// end of Navigation
+
+.hero {
+    @include flex(center);
+    min-height: 90vh;
+}
+
+.hero-text {
+    color: $white;
+    animation: slideLeft 0.5s;
+}
+
+.hero-text-main {
+    letter-spacing: 2.8rem;
+    font-size: 5rem;
+}
+
+.hero-text-sub {
+    letter-spacing: 10px;
+}
+
+.btn-cta {
+    animation: slideRight 1s 0.5s;
+}
+
+.btn-cta:active {
+    transform: translateY(-1px);
+}
+
+/*=============================================
+=            Keyframes            =
+=============================================*/
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    80% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/*=====  End of Keyframes  ======*/
+
+/*=====  End of Header  ======*/
+/*=============================================
+=            Features Section            =
+=============================================*/
+.section-about {
+    background-color: $light;
+    margin-top: -20vh;
+    min-height: 90vh;
+}
+
+.heading-secondary {
+    padding: 8rem 0;
+}
+
+.heading-secondary:hover {
+    transform: skewY(-2deg);
+    text-shadow: 0.5rem 1rem 2rem rgba($dark, 0.2);
+}
+
+.about-flex {
+    @include flex;
+}
+
+.composition {
+    position: relative;
+    &:hover &-img:not(:hover) {
+        transform: scale(0.7);
+    }
+}
+
+.composition-img {
+    @extend %img-fluid;
+    max-width: 400px;
+    // width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($dark, 0.5);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    outline-offset: 1rem;
+    transition: all 0.25s;
+    &:hover {
+        outline: 0.5rem solid $primary;
+        transform: scale(1.05) translateY(-0.5rem);
+        box-shadow: 0 2.5rem 4rem rgba($dark, 0.5);
+        z-index: 20;
+    }
+}
+
+.composition-img-1 {
+    left: 0;
+    top: 10rem;
+}
+
+.composition-img-2 {
+    right: 25%;
+    top: 20rem;
+}
+
+.composition-img-3 {
+    left: 20%;
+    top: 15rem;
+}
+
+.composition-img-4 {
+    right: 15%;
+    top: 8rem;
+}
+
+.bar:after {
+    content: "";
+    display: block;
+    width: 70px;
+    margin: 0 auto;
+    border-bottom: 5px solid $secondary;
+    padding-top: 0.5rem;
+}
+
+.features-subtitle {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.features-content,
+.work-content,
+.plans-group,
+.reviews-group,
+.form-flex,
+.footer-brand {
+    @include media-max("md") {
+        display: block;
+    }
+}
+
+.features-item {
+    padding: 0 10px;
+    @include media-max("md") {
+        padding: 1rem 0;
+    }
+}
+
+/*=====  End of Features Section  ======*/
+.divider {
+    @include backImage($gradient-1, "../images/divider.jpg");
+    @include background;
+    min-height: 60vh;
+}
+/*=============================================
+=            Products            =
+=============================================*/
+.products-showcase,
+.cities-group {
+    width: 100%;
+    @include flex(center);
+    flex-wrap: wrap;
+}
+
+.products-showcase {
+    @include media-max("md") {
+        display: block;
+    }
+}
+
+.product-item {
+    flex-basis: 33%;
+    margin: 0.2rem 0;
+    @include media-max("md") {
+        text-align: center;
+    }
+}
+
+.product-img {
+    @extend %img-fluid;
+    max-width: 300px;
+    margin: 0 0.5rem;
+    &:hover {
+        transform: scale(0.9);
+        transition: all $slow;
+    }
+    @include media-max("md") {
+        max-width: 100%;
+        margin: 0 0.2rem;
+    }
+}
+
+/*=====  End of Products  ======*/
+
+/*=============================================
+=            WORKS        =
+=============================================*/
+.work {
+    @include backImage($gradient-0, "../images/divider.jpg");
+    @include background;
+    height: 90vh;
+    .h2 {
+        color: $white;
+    }
+}
+
+.work-app .app-img:first-child {
+    margin-right: 1rem;
+    @include media-max("md") {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+}
+.app-img {
+    width: 200px;
+}
+
+.work-item {
+    flex-basis: 30%;
+    @include media-max("md") {
+        display: inline-flex;
+    }
+}
+
+.work-item:nth-child(1):before {
+    content: "1 ";
+}
+
+.work-item:nth-child(2):before {
+    content: "2 ";
+}
+
+.work-item:nth-child(3):before {
+    content: "3 ";
+}
+
+.work-item:nth-child(-n + 3):before {
+    color: $secondary;
+    border: 2px solid $secondary;
+    border-radius: 50%;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.work-text {
+    color: $white;
+    @include media-max("md") {
+        margin-top: 0.4rem;
+        padding-left: 1rem;
+    }
+}
+/*=====  End of CTA  ======*/
+
+/*=============================================
+=            Cities            =
+=============================================*/
+.cities-group {
+    @include media-max("md") {
+        display: block;
+    }
+}
+
+.city-card {
+    flex-basis: 23%;
+    transition: all 0.5s;
+    &:hover {
+        transform: translateY(-1rem) scale(1.05);
+    }
+}
+
+.city-img {
+    @extend %img-fluid;
+}
+
+.city-content {
+    @include media-max("md") {
+        margin-bottom: 2rem;
+    }
+}
+
+.city-link:hover {
+    color: $secondary;
+}
+/*=====  End of Cities  ======*/
+
+/*=============================================
+=            Reviews            =
+=============================================*/
+.reviews {
+    @include backImage($gradient-0, "../images/review-img.jpg");
+    @include background;
+    background-attachment: fixed;
+    color: $white;
+    margin-top: -6rem;
+}
+
+.reviews-group {
+    display: block;
+}
+
+.review-item {
+    @include flex;
+}
+
+.quote {
+    // font-style: italic;
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    background-color: $white;
+    border-radius: 3px;
+    transform: skewX(-12deg);
+    color: $grey;
+
+    & > * {
+        transform: skewX(12deg);
+    }
+
+    // @include media-max("md") {
+    //     border: 1px solid $grey;
+    //     padding: 1rem;
+    // }
+    &:hover .review-caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.review-img {
+    margin-bottom: 1rem;
+    height: auto;
+    width: 200px;
+    clip-path: circle(34% at 50% 60%);
+    position: relative;
+    transition: all 0.5s;
+}
+
+.quote:hover .review-img {
+    filter: blur(3px) brightness(80%);
+}
+
+.review-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $white;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+}
+/*=====  End of Reviews  ======*/
+
+/*=============================================
+=            Plans            =
+=============================================*/
+.plans,
+.cities {
+    background-color: lighten($grey, 60%);
+}
+
+.plans {
+    transform: skewY(-5deg);
+    margin-top: -10rem;
+    min-height: 90vh;
+    & > * {
+        transform: skewY(5deg);
+    }
+}
+
+.plan-card {
+    position: relative;
+    transition: all 0.5s;
+    perspective: 130rem;
+    height: 30rem;
+    @include media-max("md") {
+        margin-bottom: 1rem;
+    }
+}
+
+.plan-card > * {
+    position: absolute;
+    top: 0;
+    left: -7rem;
+    height: 30rem;
+    width: 300px;
+    border-radius: 20px;
+    transition: all 1s ease;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 0.5rem rgba($dark, 0.3);
+}
+
+.plan-card-front {
+    background-color: $white;
+}
+
+.card-picture {
+    @include background;
+    @include backImage($gradient-3, "../images/divider.jpg");
+    height: 15rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.card-heading {
+    position: absolute;
+    top: 10rem;
+    right: 2rem;
+}
+
+.card-details > * {
+    padding: 0.5rem 0;
+}
+
+.plan-card-back {
+    color: $grey;
+    background-image: $gradient-2;
+    @include flex(center);
+    flex-direction: column;
+    transform: rotateY(180deg);
+}
+
+.plan-card:hover .plan-card-front {
+    transform: rotateY(-180deg);
+}
+
+.plan-card:hover .plan-card-back {
+    transform: rotateY(0);
+}
+
+.plan-title {
+    background-image: $gradient-2;
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: $white;
+}
+
+.plan-price {
+    font-size: 1.8rem;
+    @include media-max("lg") {
+        font-size: 1.5rem;
+    }
+}
+
+.plan-price-cup {
+    font-size: 1.3rem;
+    @include media-max("lg") {
+        font-size: 1rem;
+    }
+}
+
+/*=====  End of Plans  ======*/
+/*=============================================
+=            Contact Form            =
+=============================================*/
+.contact {
+    background-image: $gradient-2;
+}
+
+.contact-img {
+    background-image: linear-gradient(
+            105deg,
+            rgba($white, 0.9) 0%,
+            rgba($white, 0.9) 55%,
+            transparent 55%
+        ),
+        url("../images/divider.jpg");
+    @include background;
+}
+
+label,
+.btn-form {
+    display: block;
+}
+
+input,
+textarea {
+    border: none;
+    border-bottom: 3px solid #ccc;
+}
+
+input,
+textarea,
+.btn-form {
+    width: 45%;
+}
+
+textarea {
+    min-height: 6rem;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 3px $primary;
+    border-bottom: 3px solid $primary;
+    &:invalid {
+        border-bottom: 3px solid $danger;
+    }
+}
+
+/*=====  End of Contact Form  ======*/
+
+/*=============================================
+=            Footer            =
+=============================================*/
+.footer {
+    background-color: $dark;
+    color: $secondary;
+    @include media-max("lg") {
+        padding: 0 2rem;
+    }
+}
+
+.footer-brand {
+    @include media-max("md") {
+        display: block;
+        padding-bottom: 0;
+    }
+}
+
+.footer-nav,
+.social-links {
+    display: inline-flex;
+}
+
+.social-links {
+    @include media-max("md") {
+        margin-top: 2rem;
+    }
+}
+
+.footer-link {
+    color: $secondary;
+    font-size: 1.5rem;
+    &:hover {
+        color: $white;
+    }
+    @include media-max("md") {
+        font-size: 1rem;
+    }
+}
+
+.link-indent {
+    @include media-max("md") {
+        margin-left: -1rem;
+    }
+}
+
+.social-link {
+    color: darken($white, 20%);
+    &:hover {
+        transition: color $fast;
+    }
+}
+
+.fa-facebook-square:hover {
+    color: #3b5998;
+}
+
+.fa-instagram-square:hover {
+    color: #3f729b;
+}
+
+.fa-twitter-square:hover {
+    color: #00aced;
+}
+
+.fa-google-plus-square:hover {
+    color: #dd4b39;
+}
+
+.copy-name {
+    color: $white;
+    border-bottom: 1px solid transparent;
+    &:hover {
+        color: $secondary;
+        border-bottom: 1px solid $secondary;
+    }
+}
+/*=====  End of Footer  ======*/
+
+/*=============================================
+=            Pop-up            =
+=============================================*/
+.pop-up {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($dark, 0.8);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.pop-up-content {
+    width: 60%;
+    height: 40rem;
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.4s 0.2s;
+    border-radius: 3px;
+}
+
+.pop-up:target .pop-up-content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.pop-extra {
+    height: 100%;
+    @include flex;
+    padding: 0 3rem;
+    & > * {
+        flex-basis: 50%;
+    }
+}
+// .pop-up-left {
+//     // width: 30%;
+//     flex-basis: 50%;
+// }
+
+// .pop-up-right {
+//     flex-basis: 50%;
+//     // width: 60%;
+// }
+
+.pop-up-img {
+    @extend %img-fluid;
+    max-width: 500px;
+}
+
+.pop-up-text {
+    column-count: 2;
+    column-gap: 2rem;
+}
+
+.pop-up-close {
+    font-size: 3rem;
+    &:link,
+    &:visited {
+        color: $grey;
+        position: absolute;
+        top: 2.5rem;
+        right: 3rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+    &:hover {
+        color: $primary;
+    }
+}
+/*=====  End of Pop-up  ======*/
