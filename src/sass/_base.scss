@@ -243,13 +243,12 @@ a {
 .composition-img {
     @extend %img-fluid;
     max-width: 400px;
-    // width: 55%;
     box-shadow: 0 1.5rem 4rem rgba($dark, 0.5);
     border-radius: 2px;
     position: absolute;
     z-index: 10;
-    outline-offset: 1rem;
-    transition: all 0.25s;
+    outline-offset: 0.5rem;
+    transition: all $slow;
     &:hover {
         outline: 0.5rem solid $primary;
         transform: scale(1.05) translateY(-0.5rem);
@@ -276,15 +275,6 @@ a {
 .composition-img-4 {
     right: 15%;
     top: 8rem;
-}
-
-.bar:after {
-    content: "";
-    display: block;
-    width: 70px;
-    margin: 0 auto;
-    border-bottom: 5px solid $secondary;
-    padding-top: 0.5rem;
 }
 
 .features-subtitle {
@@ -344,6 +334,8 @@ a {
     @extend %img-fluid;
     max-width: 300px;
     margin: 0 0.5rem;
+    transition: all $normal;
+
     &:hover {
         transform: scale(0.9);
         transition: all $slow;
@@ -471,7 +463,6 @@ a {
 }
 
 .quote {
-    // font-style: italic;
     position: relative;
     margin: 0 auto;
     width: 80%;
@@ -484,10 +475,6 @@ a {
         transform: skewX(12deg);
     }
 
-    // @include media-max("md") {
-    //     border: 1px solid $grey;
-    //     padding: 1rem;
-    // }
     &:hover .review-caption {
         opacity: 1;
         transform: translate(-50%, -50%);
@@ -794,15 +781,6 @@ textarea:focus {
         flex-basis: 50%;
     }
 }
-// .pop-up-left {
-//     // width: 30%;
-//     flex-basis: 50%;
-// }
-
-// .pop-up-right {
-//     flex-basis: 50%;
-//     // width: 60%;
-// }
 
 .pop-up-img {
     @extend %img-fluid;
