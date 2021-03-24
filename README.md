@@ -1,7 +1,7 @@
-# Coffee Hub Website
-Website project for Coffee Hub.
+# Hub Coffee Website
+Website project for Hub Coffee.
 
-![Coffee Hub](screenshot.jpg)
+![Hub Coffee](screenshot.jpg)
 
 ## Built With
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
@@ -14,7 +14,7 @@ Website project for Coffee Hub.
 
 ## Install
 ```
-    $ git clone git@github.com:samiiexx/coffee-hub.git main
+    $ git clone git@github.com:samiiexx/hub-coffee.git main
     $ cd main
     $ npm install
 ```
